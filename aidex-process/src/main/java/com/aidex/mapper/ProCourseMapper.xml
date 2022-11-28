@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProCourseMapper">
+    <sql id="procoursesColumns">
+        t.cou_id as "couId",
+        <!--cast(t.cou_picture as char) AS "couPicture",-->
+        t.cou_picture AS couPicture,
+        t.cou_name AS "couName",
+        t.cou_chap_num AS "couChapNum",
+        t.cou_train_num  AS "couTrainNum",
+        t.cou_exp_num  AS "couExpNum",
+        t.cou_PPT_num  AS "couPPTNum",
+        t.cou_category AS "couCategory",
+        t.cou_show AS "couShow",
+        t.cou_url AS "couURL",
+        t.create_by AS "createBy",
+        t.create_dept AS "createDept",
+        t.create_time AS "createTime",
+        t.update_by AS "updateBy",
+        t.update_time AS "updateTime",
+        t.update_ip AS "updateIp",
+        t.remark AS "remark",
+        t.version AS "version",
+        t.del_flag AS "delFlag"
+    </sql>
+
+    <resultMap type="ProCourse" id="ProCourseResult">
+        <id     property="couId"           column="cou_id"      />
+        <result property="couPicture"       column="cou_picture"      />
+        <result property="couName"     column="cou_name"    />
+        <result property="couChapNum"         column="cou_chap_num"    />
+        <result property="couTrainNum"     column="cou_train_num"    />
+        <result property="couExpNum"     column="cou_exp_num"    />
+        <result property="couPPTNum"     column="cou_PPT_num"    />
+        <result property="couCategory"   column="cou_category"  />
+        <result property="couShow"     column="cou_show"    />
+        <result property="couURL"   column="cou_URL"  />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+        <result property="remark"       column="remark"       />
+
+    </resultMap>
+
+    <select id="findList" resultType="ProCourse">
+        select
+        <include refid="procoursesColumns"/>
+        from pro_course t
+    </select>
+
+</mapper>

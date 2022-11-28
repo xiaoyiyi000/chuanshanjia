@@ -1,0 +1,52 @@
+CREATE TABLE pro_navigation
+
+    (
+
+   nav_id INT(3),
+
+   nav_name VARCHAR(25),
+
+   nav_ename VARCHAR(25)，
+
+   create_by	VARCHAR(64),	
+
+   create_dept  VARCHAR(64),
+
+   create_time	DATETIME,
+	
+   update_by	   VARCHAR(64),	
+
+   update_time	DATETIME,	
+
+   update_ip	    VARCHAR(128),		
+
+   remark	VARCHAR(500),		
+
+  version	INT,				
+
+  del_flag	CHAR(1)
+
+    )
+
+
+
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('1','课程','Course');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('2','实训','Training');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('3','专题','Topic');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('4','实验','Experiment');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('5','考试','Examination');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('6','竞赛','Contest');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('7','工具','Tool');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('8','资讯','Information');
+INSERT INTO  pro_navigation(nav_id,nav_name,nav_ename)
+VALUES('9','班级','Class');
+
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProColumeMapper">
+    <sql id="procolumeColumns">
+        t.col_id AS "colId",
+        <!--cast(t.col_icon as char) AS "colIcon",-->
+        t.col_icon AS "colIcon",
+		t.col_name AS "colName",
+		t.col_introduce AS "colIntroduce",
+		t.col_show  AS "colShow",
+		t.col_url  AS "colUrl",
+		t.create_by AS "createBy",
+		t.create_dept AS "createDept",
+		t.create_time AS "createTime",
+		t.update_by AS "updateBy",
+		t.update_time AS "updateTime",
+		t.update_ip AS "updateIp",
+		t.remark AS "remark",
+		t.version AS "version",
+		t.del_flag AS "delFlag"
+    </sql>
+
+    <resultMap type="ProColume" id="ProColumeResult">
+        <id     property="colId"           column="col_id"      />
+        <result property="colIcon"       column="col_icon"      />
+        <result property="colName"     column="col_name"    />
+        <result property="colIntroduce"         column="col_introduce"    />
+        <result property="colShow"     column="col_show"    />
+        <result property="colUrl"     column="col_url"    />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+        <result property="remark"       column="remark"       />
+    </resultMap>
+
+    <select id="findList" resultType="ProColume">
+        select
+        <include refid="procolumeColumns"/>
+        from pro_column t
+    </select>
+
+</mapper>

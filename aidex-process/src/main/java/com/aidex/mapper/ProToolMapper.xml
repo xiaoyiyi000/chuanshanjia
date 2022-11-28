@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProToolMapper">
+    <sql id="protoolsColume">
+        t.tool_id as "toolId",
+		t.tool_name AS "toolName",
+		t.tool_url AS "toolUrl",
+		t.create_by AS "createBy",
+		t.create_dept AS "createDept",
+		t.create_time AS "createTime",
+		t.update_by AS "updateBy",
+		t.update_time AS "updateTime",
+		t.update_ip AS "updateIp",
+		t.remark AS "remark",
+		t.version AS "version",
+		t.del_flag AS "delFlag"
+    </sql>
+
+    <!--用户返回对象集合时使用-->
+    <resultMap type="ProTool" id="ProToolResult">
+        <id     property="toolId"           column="tool_id"      />
+        <result property="toolName"       column="tool_name"      />
+        <result property="toolUrl"         column="tool_url"    />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+        <result property="remark"       column="remark"       />
+    </resultMap>
+
+
+
+    <select id="findList" resultType="ProTool">
+        SELECT
+        <include refid="protoolsColume"/>
+        FROM pro_tool t
+        <!--<include refid="procolumeOrderBy"/>-->
+
+    </select>
+
+    <!--<select id="findList" resultType="ProColume">
+        <include refid="selectProColumeAll"/>
+    </select>-->
+
+</mapper>

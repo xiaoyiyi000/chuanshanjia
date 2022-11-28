@@ -1,0 +1,43 @@
+CREATE TABLE pro_carousel
+
+    (
+
+   crl_id INT(3),
+
+   crl_picture LongBlob,
+
+   crl_url VARCHAR(255),
+
+   crl_show TINYINT(0),
+   
+   create_by	VARCHAR(64),	
+
+   create_dept  VARCHAR(64),
+
+   create_time	DATETIME,
+	
+   update_by	   VARCHAR(64),	
+
+   update_time	DATETIME,	
+
+   update_ip	    VARCHAR(128),		
+
+   remark	VARCHAR(500),		
+
+  version	INT,				
+
+  del_flag	CHAR(1)	
+
+    )
+
+
+INSERT INTO  pro_carousel(crl_id,crl_picture,crl_url,crl_show)
+VALUES('1','','','0');
+INSERT INTO  pro_carousel(crl_id,crl_picture,crl_url,crl_show)
+VALUES('2','','','0');
+INSERT INTO  pro_carousel(crl_id,crl_picture,crl_url,crl_show)
+VALUES('3','','','0');
+INSERT INTO  pro_carousel(crl_id,crl_picture,crl_url,crl_show)
+VALUES('4','','','0');
+INSERT INTO  pro_carousel(crl_id,crl_picture,crl_url,crl_show)
+VALUES('5','','','0');

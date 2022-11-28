@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProContainerMapper">
+    <sql id="ProContainerColumns">
+        t.container_id AS "containerId",
+        t.image_id AS "imageId",
+        t.container_name AS "containerName",
+        t.image_name AS "imageName",
+        t.flag AS "flag",
+        t.localport AS "localport",
+        t.containerport AS "containerport",
+        t.url AS "url",
+        t.started AS "started"
+    </sql>
+
+    <resultMap type="ProContainer" id="ProContainerResult">
+        <id     property="containerId"           column="container_id"      />
+        <result property="imageId"       column="image_id"      />
+        <result property="containerName"     column="container_name"    />
+        <result property="imageName"         column="image_name"    />
+        <result property="flag"     column="flag"    />
+        <result property="localport"     column="localport"    />
+        <result property="containerport"        column="containerport"        />
+        <result property="url"     column="url"    />
+        <result property="started"        column="started"        />
+    </resultMap>
+
+    <sql id="selectProContainer">
+        select
+            t.container_id,
+            t.image_id ,
+            t.container_name ,
+            t.image_name ,
+            t.flag ,
+            t.localport ,
+            t.containerport,
+            t.url ,
+            t.started
+        from pro_container t
+    </sql>
+
+    <insert id="insertContainer" >
+        insert into pro_container(
+            container_id,
+            image_id ,
+            container_name ,
+            image_name ,
+            flag ,
+            localport ,
+            containerport,
+            url ,
+            started
+        )values(
+                   #{containerId},
+                   #{imageId},
+                   #{containerName},
+                   #{imageName},
+                   #{flag},
+                   #{localport},
+                   #{containerport},
+                   #{url},
+                   #{started}
+               )
+    </insert>
+
+    <select id="selectContainerById" parameterType="String"  resultMap="ProContainerResult">
+        <include refid="selectProContainer"/>
+        where t.container_id = #{containerid}
+    </select>
+
+    <delete id="deleteContainerById" parameterType="String">
+        delete from pro_container where container_id=#{containerId}
+    </delete>
+</mapper>

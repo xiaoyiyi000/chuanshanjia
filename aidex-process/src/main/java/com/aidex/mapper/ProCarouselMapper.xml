@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProCarouselMapper">
+    <sql id="ProCarouselColumns">
+        t.crl_id AS "crlId",
+        t.crl_picture AS "crlPicture",
+        t.crl_url AS "crlURL",
+        t.crl_show AS "crlShow",
+        t.create_by AS "createBy",
+        t.create_dept AS "createDept",
+        t.create_time AS "createTime",
+        t.update_by AS "updateBy",
+        t.update_time AS "updateTime",
+        t.update_ip AS "updateIp",
+        t.remark AS "remark",
+        t.version AS "version",
+        t.del_flag AS "delFlag"
+    </sql>
+
+    <select id="findList" resultType="ProCarousel">
+        select
+        <include refid="ProCarouselColumns"/>
+        from pro_carousel t
+    </select>
+
+
+</mapper>

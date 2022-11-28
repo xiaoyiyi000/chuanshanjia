@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aidex.mapper.ProTrainingMapper">
+    <sql id="protrainingColumns">
+        t.tra_id as "traId",
+		t.tra_name AS "traName",
+		t.tra_difficulty AS "traDifficulty",
+		t.tra_score AS "traScore",
+		t.tra_category  AS "traCategory",
+		t.tra_solved  AS "traSolved",
+		t.tra_show AS "traShow",
+		t.tra_url AS "traUrl",
+		t.create_by AS "createBy",
+		t.create_dept AS "createDept",
+		t.create_time AS "createTime",
+		t.update_by AS "updateBy",
+		t.update_time AS "updateTime",
+		t.update_ip AS "updateIp",
+		t.remark AS "remark",
+		t.version AS "version",
+		t.del_flag AS "delFlag"
+    </sql>
+
+    <!--用户返回对象集合时使用-->
+    <resultMap type="ProTraining" id="ProTrainingResult">
+        <id     property="traId"           column="tra_id"      />
+        <result property="traName"       column="tra_name"      />
+        <result property="traDifficuty"     column="tra_difficuty"    />
+        <result property="traScore"         column="tra_score"    />
+        <result property="traCategory"     column="tra_category"    />
+        <result property="traSolved"     column="tra_solved"    />
+        <result property="traShow"     column="tra_show"    />
+        <result property="traUrl"   column="tra_url"  />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+        <result property="remark"       column="remark"       />
+    </resultMap>
+
+
+
+
+    <select id="findList" resultType="ProTraining">
+        SELECT
+        <include refid="protrainingColumns"/>
+        FROM pro_training t
+    </select>
+
+
+
+</mapper>
